@@ -1,144 +1,159 @@
 package ss1_java_Introduction_to_Java.bai_tap;
-
 import java.util.Scanner;
 
-public class text {
+public class read_number_into_letter {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập số cần đọc ");
-        int number = sc.nextInt();
-        if (number < 0 || number > 999) {
-            System.out.println("số lơn hơn 3 chữ số hoặc đang là số âm");
-        } else if (number >= 0 && number <= 9) {
-            switch (number) {
-                case 0:
-                    System.out.print("không");
-                    break;
+        Scanner scanner = new Scanner(System.in);
 
-                case 1:
-                    System.out.println(" một.");
-                    break;
-                case 2:
-                    System.out.println(" hai.");
-                    break;
-                case 3:
-                    System.out.println(" ba.");
-                    break;
-                case 4:
-                    System.out.println(" bốn.");
-                    break;
-                case 5:
-                    System.out.println(" năm.");
-                    break;
-                case 6:
-                    System.out.println(" sáu.");
-                    break;
-                case 7:
-                    System.out.println(" bảy.");
-                    break;
-                case 8:
-                    System.out.println(" tám.");
-                    break;
-                case 9:
-                    System.out.println(" chín.");
-                    break;
-            }
-        } else {
-            switch (number / 100) {
+        int number = scanner.nextInt();
 
-                case 1:
-                    System.out.print("Một trăm");
-                    break;
-                case 2:
-                    System.out.print("Hai trăm");
-                    break;
-                case 3:
-                    System.out.print("Ba trăm");
-                    break;
-                case 4:
-                    System.out.print("Bốn trăm");
-                    break;
-                case 5:
-                    System.out.print("Năm trăm");
-                    break;
-                case 6:
-                    System.out.print("Sáu trăm");
-                    break;
-                case 7:
-                    System.out.print("Bảy trăm");
-                    break;
-                case 8:
-                    System.out.print("Tám trăm");
-                    break;
-                case 9:
-                    System.out.print("Chín trăm");
-                    break;
-            }
-            switch (((number / 10) * 10) % 100) {
-                case 0:
-                    System.out.print(" lẻ");
-                    break;
-                case 10:
-                    System.out.print(" mười");
-                    break;
-                case 20:
-                    System.out.print(" hai mươi");
-                    break;
-                case 30:
-                    System.out.print(" ba mươi");
-                    break;
-                case 40:
-                    System.out.print(" bốn mươi");
-                    break;
-                case 50:
-                    System.out.print(" năm mươi");
-                    break;
-                case 60:
-                    System.out.print(" sáu mươi");
-                    break;
-                case 70:
-                    System.out.print(" bảy mươi");
-                    break;
-                case 80:
-                    System.out.print(" tám mươi");
-                    break;
-                case 90:
-                    System.out.print(" chín mươi");
-                    break;
-            }
-            switch (number % 10) {
-                case 0:
-                    System.out.print("");
-                    break;
+        int number3 = number / 100;
+        int number4 = (number % 100) / 10;
+        int number5 = (number % 100) % 10;
 
-                case 1:
-                    System.out.println(" một.");
+        String s1 = null, s2 = null, s3 = null;
+
+        switch (number3) {
+            case 1:
+                s1 = "one hundred";
+                break;
+            case 2:
+                s1 = "two hundred";
+                break;
+            case 3:
+                s1 = "three hundred";
+                break;
+            case 4:
+                s1 = "four hundred";
+                break;
+            case 5:
+                s1 = "five hundred";
+                break;
+            case 6:
+                s1 = "six hundred";
+                break;
+            case 7:
+                s1 = "seven hundred";
+                break;
+            case 8:
+                s1 = "eight hundred";
+                break;
+            case 9:
+                s1 = "nine hundred";
+                break;
+        }
+        switch (number4) {
+            case 1:
+                if(number5==0) {
+                    s2 = "ten";
                     break;
-                case 2:
-                    System.out.println(" hai.");
+                }
+            case 2:
+                s2 = "twenty";
+                break;
+            case 3:
+                s2 = "thirty";
+                break;
+            case 4:
+                s2 = "forty";
+                break;
+            case 5:
+                s2 = "fifty";
+                break;
+            case 6:
+                s2 = "sixty";
+                break;
+            case 7:
+                s2 = "seventy";
+                break;
+            case 8:
+                s2 = "eighty";
+                break;
+            case 9:
+                s2 = "ninety";
+                break;
+        }
+        switch (number5) {
+            case 0:
+                if (number3 == 0 && number4 == 0) {
+                    s3 = "zero";
                     break;
-                case 3:
-                    System.out.println(" ba.");
+                }
+                s3 = "";
+                break;
+            case 1:
+                if (number4 == 1) {
+                    s3 = "eleven";
                     break;
-                case 4:
-                    System.out.println(" bốn.");
+                }
+                s3 = "one";
+                break;
+            case 2:
+                if (number4 == 1) {
+                    s3 = "twelve";
                     break;
-                case 5:
-                    System.out.println(" năm.");
+                }
+                s3 = "two";
+                break;
+            case 3:
+                if (number4 == 1) {
+                    s3 = "thirteen";
                     break;
-                case 6:
-                    System.out.println(" sáu.");
+                }
+                s3 = "three";
+                break;
+            case 4:
+                if (number4 == 1) {
+                    s3 = "fourteen";
                     break;
-                case 7:
-                    System.out.println(" bảy.");
+                }
+                s3 = "four";
+                break;
+            case 5:
+                if (number4 == 1) {
+                    s3 = "fifteen";
                     break;
-                case 8:
-                    System.out.println(" tám.");
+                }
+                s3 = "five";
+                break;
+            case 6:
+                if (number4 == 1) {
+                    s3 = "sixteen";
                     break;
-                case 9:
-                    System.out.println(" chín.");
+                }
+                s3 = "six";
+                break;
+            case 7:
+                if (number4 == 1) {
+                    s3 = "seventy";
                     break;
-            }
+                }
+                s3 = "seven";
+                break;
+            case 8:
+                if (number4 == 1) {
+                    s3 = "eighteen";
+                    break;
+                }
+                s3 = "eight";
+                break;
+            case 9:
+                if (number4 == 1) {
+                    s3 = "nineteen";
+                    break;
+                }
+                s3 = "nine";
+                break;
+        }
+        if (s1 == null && s2 == null) {
+            System.out.print(s3);
+        } else if (s1 == null) {
+            System.out.print(s2 + " " + s3);
+        } else if(s2== null){
+            System.out.print(s1 + " and " + s3);
+        }
+        else {
+            System.out.print(s1 + " and " + s2 + " " + s3);
         }
     }
 }

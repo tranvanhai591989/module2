@@ -3,7 +3,7 @@ package ss1_java_Introduction_to_Java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class DayOfMonth {
+public class DayInMonth {
 
     public static void main(String[] args) {
 
@@ -37,5 +37,8 @@ public class DayOfMonth {
 
         if (!daysInMonth.equals("")) System.out.printf("The month '%d' has %s days!", month, daysInMonth);
         else System.out.print("Invalid input!");
+        /*
+
+         */
     }
 }

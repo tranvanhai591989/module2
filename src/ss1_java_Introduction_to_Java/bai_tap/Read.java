@@ -1,8 +1,8 @@
-package ss1_javaintroduction.exercise;
+package ss1_java_Introduction_to_Java.bai_tap;
 
 import java.util.Scanner;
 
-class Read {
+public class Read {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập số cần đọc ");
