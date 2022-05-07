@@ -3,8 +3,7 @@ package ss2_array.exercise;
 public class First20PrimeNumber {
     public static void main(String[] args) {
         int number = 2;
-        int count = 0;
-        while (count < 20&& number<100) {
+        while (number<100) {
             boolean flag = true;
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
@@ -14,7 +13,6 @@ public class First20PrimeNumber {
             }
             if (flag) {
                 System.out.println(number);
-                count++;
             }
             number++;
         }
