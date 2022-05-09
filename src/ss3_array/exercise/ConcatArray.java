@@ -1,5 +1,7 @@
 package ss3_array.exercise;
 
+
+
 import java.util.Arrays;
 import java.util.Scanner;
 

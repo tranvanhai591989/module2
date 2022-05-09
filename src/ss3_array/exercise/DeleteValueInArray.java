@@ -21,9 +21,7 @@ public class DeleteValueInArray {
         int count = 0;
         for (int i = 0; i < arrLength; i++) {
             if (xoa == arr[i]) {
-                for (int j = i; j < arrLength - 1; j++) {
-                    arr[j] = arr[j + 1];
-                }
+                if (arrLength - 1 - i >= 0) System.arraycopy(arr, i + 1, arr, i, arrLength - 1 - i);
                 count++;
                 i--;
                 arr[arr.length - count] = 0;
