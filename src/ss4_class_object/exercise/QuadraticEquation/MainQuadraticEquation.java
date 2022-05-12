@@ -12,7 +12,7 @@ public class MainQuadraticEquation {
         System.out.println("Input c");
         int c = scanner.nextInt();
         QuadraticEquation quadraticEquation = new QuadraticEquation(a, b, c);
-        if (quadraticEquation.getDiscriminant() >= 0) {
+        if (quadraticEquation.getDiscriminant() > 0) {
             System.out.println("First root: " + quadraticEquation.getRoot1());
             System.out.println("Second root: " + quadraticEquation.getRoot2());
         } else if (quadraticEquation.getDiscriminant() == 0) {

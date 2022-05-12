@@ -1,6 +1,8 @@
 package ss4_class_object.exercise.Fan;
 
 public class Fan {
+    private String name;
+    final int OFF = 0;
     final int SLOW = 1;
     final int MEDIUM = 2;
     final int FAST = 3;
@@ -11,6 +13,14 @@ public class Fan {
 
     public int getSLOW() {
         return SLOW;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getMEDIUM() {
@@ -57,18 +67,29 @@ public class Fan {
 
     }
 
-    public Fan(int speed, boolean off, double radius, String color) {
+//    public void change(){
+//        if (this.speed != 0){
+//            System.out.println(this.getName() + " ON Speed :"+ this.speed);
+//        }else {
+//            System.out.println(this.getName() +" OFF");
+//        }
+//    }
+
+
+    public Fan(String name, int speed, boolean off, double radius, String color) {
         this.speed = speed;
         this.button = off;
         this.radius = radius;
         this.color = color;
+        this.name = name;
     }
 
+    @Override
     public String toString() {
-        if (this.button) {
-            return "Speed : " + this.speed + " Color : " + this.color + " Radius : " + this.radius + " Fan is On";
+        if (this.button && this.speed != 0) {
+            return this.getName() + " ON Speed :" + this.speed + " Color : " + this.color + " Radius : " + this.radius;
         } else {
-            return "Color : " + this.color + " Radius : " + this.radius + " Fan is Off";
+            return this.getName() + " OFF Color : " + this.color + " Radius : " + this.radius;
         }
     }
 }

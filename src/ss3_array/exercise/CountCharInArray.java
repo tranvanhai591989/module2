@@ -15,8 +15,8 @@ public class CountCharInArray {
         char[] chacha=cha.toCharArray();
 
         int count =0;
-        for (int i = 0; i <ch.length ; i++) {
-            if (chacha[0]==ch[i]){
+        for (char c : ch) {
+            if (chacha[0] == c) {
                 count++;
             }
 

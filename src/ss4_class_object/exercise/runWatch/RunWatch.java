@@ -1,7 +1,4 @@
-package ss4_class_object.exercise.runwatch;
-
-import java.time.LocalTime;
-import java.util.Arrays;
+package ss4_class_object.exercise.runWatch;
 
 public class RunWatch {
     private long startTime ,stopTime;

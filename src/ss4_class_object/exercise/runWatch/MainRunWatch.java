@@ -1,4 +1,4 @@
-package ss4_class_object.exercise.runwatch;
+package ss4_class_object.exercise.runWatch;
 
 import java.util.Arrays;
 

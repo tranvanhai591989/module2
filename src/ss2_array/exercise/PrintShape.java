@@ -10,8 +10,9 @@ public class PrintShape {
         System.out.println("3 Print isosceles triangle");
         System.out.println("4 Exit");
         System.out.println("Change chanel");
-        int Change = Integer.parseInt(scanner.nextLine());
-        switch (Change) {
+        int change = Integer.parseInt(scanner.nextLine());
+        switch (change) {
+
             case 1:
                 System.out.println("Input the amount");
                 int a = Integer.parseInt(scanner.nextLine());

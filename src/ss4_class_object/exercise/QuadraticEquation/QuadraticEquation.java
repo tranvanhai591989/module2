@@ -37,7 +37,7 @@ public class QuadraticEquation {
     }
 
     public double getDiscriminant() {
-        return this.getB() * this.getB() - 4 * this.getA() * this.getC();
+        return Math.pow(this.getB(),2) - 4 * this.getA() * this.getC();
     }
 
     public double getRoot1() {
