@@ -8,10 +8,10 @@ public class TestProduct {
     public static Product[] productlist = new Product[100];
 
     static {
-        productlist[0] = new Product(1, " Iphone", 100, 12, "Apple");
-        productlist[1] = new Product(2, " v", 100, 12, "SS");
-        productlist[2] = new Product(3, " c", 100, 12, "CC");
-        productlist[3] = new Product(4, " cv", 100, 12, "DD");
+        productlist[0] = new Product(1, " Iphone", 242, 1552, "Apple");
+        productlist[1] = new Product(2, " v", 234234, 1245, "SS");
+        productlist[2] = new Product(3, " c", 12423400, 12, "CC");
+        productlist[3] = new Product(4, " cv", 100, 7878, "DD");
         count = 4;
     }
 
@@ -84,6 +84,7 @@ public class TestProduct {
         int id = Integer.parseInt(scanner.nextLine());
         for (int i = id-1; i <productlist.length -1; i++) {
             productlist[i]=productlist[i+1];
+
         }
     }
 
