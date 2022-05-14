@@ -1,4 +1,4 @@
-package ss7_AbstractClass_Interface.Exercise;
+package ss7_AbstractClass_Interface.Exercise2;
 
 public class ShapeTest {
 

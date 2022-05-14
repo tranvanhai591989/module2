@@ -1,6 +1,6 @@
-package ss7_AbstractClass_Interface.Exercise;
+package ss7_AbstractClass_Interface.Exercise2;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape implements Colorable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -43,10 +43,8 @@ public class Rectangle extends Shape implements Resizeable {
     }
 
     @Override
-    public void resize(double percent) {
-        this.length = length * percent;
-        this.width = width * percent;
-
+    public void howToColor() {
+        System.out.println("Rectangle Color all four sides ");
     }
 
     @Override

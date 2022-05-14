@@ -1,6 +1,6 @@
-package ss7_AbstractClass_Interface.Exercise;
+package ss7_AbstractClass_Interface.Exercise2;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape implements Colorable {
     private double radius = 1.0;
 
     public Circle() {
@@ -32,8 +32,8 @@ public class Circle extends Shape implements Resizeable {
     }
 
     @Override
-    public void resize(double percent) {
-        this.radius = radius * percent;
+    public void howToColor() {
+        System.out.println("Circle Color all four sides ");
     }
 
     @Override

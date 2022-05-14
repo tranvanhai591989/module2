@@ -1,6 +1,6 @@
-package ss7_AbstractClass_Interface.Exercise;
+package ss7_AbstractClass_Interface.Exercise2;
 
-public abstract class Shape implements Resizeable {
+public abstract class Shape implements Colorable {
     private String color = "green";
     private boolean filled = true;
 
@@ -31,16 +31,16 @@ public abstract class Shape implements Resizeable {
     }
 
     @Override
-    public void resize(double percent) {
-
+    public void howToColor() {
+        System.out.println("Color all four sides ");
     }
 
     @Override
     public String toString() {
-        return "A Shape with color of "
-                + getColor()
-                + " and "
-                + (isFilled() ? "filled" : "not filled");
+        return "Shape{" +
+                "color='" + color + '\'' +
+                ", filled=" + filled +
+                '}';
     }
 
 }
