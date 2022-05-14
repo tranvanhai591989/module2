@@ -26,7 +26,7 @@ public class Teacher extends Person{
 
     @Override
     public String toString() {
-        return"Teacher ==> No."+stt +" , Id : " +getId()+" , Name : "+getName()+" , Age : "+getAge()+" , Gender :"+isGender()+" , Salary"+getSalary();
+        return"Teacher ==> No."+stt +" , Id : " +getId()+" , Name : "+getName()+" , Age : "+getAge()+" , Gender :"+getGender()+" , Salary"+getSalary();
 
     }
 }

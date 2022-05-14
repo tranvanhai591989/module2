@@ -15,10 +15,10 @@ public class Manager {
     public static void add() {
         System.out.println("1 - Student\n" +
                 "2 - Teacher");
-
-        switch (Integer.parseInt(scanner.nextLine())) {
+        int choose = Integer.parseInt(scanner.nextLine());
+        switch (choose) {
             case 1:
-                System.out.println();
+
                 System.out.print("Set name : ");
                 String name = scanner.nextLine();
                 System.out.print("Set age : ");
@@ -26,8 +26,8 @@ public class Manager {
                 System.out.print("Set Gender : ");
                 String gender = scanner.nextLine();
                 System.out.print("Set Point : ");
-                double point = scanner.nextDouble();
-                Student student = new Student(stt, count[id], name, age,gender,point);
+                double point = Double.parseDouble(scanner.nextLine());
+                Student student = new Student(stt, count[id], name, age, gender, point);
                 managers[id] = (Person) student;
                 stt++;
                 id++;
@@ -45,6 +45,7 @@ public class Manager {
                 managers[id] = (Person) teacher;
                 stt++;
                 id++;
+
                 break;
         }
     }
@@ -57,9 +58,8 @@ public class Manager {
         for (int i = 0; i < managers.length; i++) {
             if (managers[i] != null && managers[i].toString().contains(chart)) {
                 System.out.println(managers[i]);
-                check++;
-            }
 
+            } check++;
         }
         if (check > 0) {
             System.out.println("Can't not find ");
@@ -67,14 +67,24 @@ public class Manager {
     }
 
     public static void delete() {
+        int pending =0;
         System.out.println("Input No..");
         int no = Integer.parseInt(scanner.nextLine());
-        for (int i = no; i < managers.length - 1; i++) {
+        for (int i = no-1; i < managers.length - 1; i++) {
             managers[i] = null;
             managers[i] = managers[i + 1];
-            stt--;
-        }
 
+
+        }stt--;
+        for (int i = no-1; i <count.length-1 ; i++) {
+            pending =count[i];
+            count[i]=count[1+i];
+            count[count.length-1]=pending;
+        }
+//        for (int i = no-1; i <managers.length-1 ; i++) {
+//            managers[i].setStt(i+1);
+//        }
+        display();
 
     }
 
@@ -92,7 +102,7 @@ public class Manager {
         }
         System.out.println(Arrays.toString(count));
         do {
-            System.out.println(" ---------------ManagerStaffTeacherStudent-------------\n" +
+            System.out.println(" ----ManagerStaffTeacherStudent----\n" +
                     "1 - Add\n" +
                     "2 - Find\n" +
                     "3 - Delete\n" +
@@ -106,10 +116,10 @@ public class Manager {
                     break;
                 case 2:
                     find();
-//                    break;
-//                case 3:
-//                    Delete();
-//                    break;
+                    break;
+                case 3:
+                    delete();
+                    break;
                 case 4:
                     display();
                     break;

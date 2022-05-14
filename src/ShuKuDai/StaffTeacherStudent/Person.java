@@ -50,7 +50,7 @@ public abstract class Person {
         this.age = age;
     }
 
-    public String isGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -65,7 +65,9 @@ public abstract class Person {
                 ", id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", gender=" + gender +
+                ", gender='" + gender + '\'' +
                 '}';
     }
+
+
 }

@@ -25,6 +25,6 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return  "Student ==> No "+stt  +" , Id : " +getId()+" ,Name : "+getName()+" ,Age : "+getAge()+" ,Gender :"+isGender()+" , Point "+getPoint();
+        return  "Student ==> No "+stt  +" , Id : " +getId()+" ,Name : "+getName()+" ,Age : "+getAge()+" ,Gender :"+getGender()+" , Point "+getPoint();
     }
 }
