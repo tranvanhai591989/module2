@@ -7,7 +7,7 @@ public class Square extends Shape implements Resizeable {
         this.width = width;
     }
 
-    public Square(String color, boolean filled, double width) {
+    public Square(double width,String color, boolean filled) {
         super(color, filled);
         this.width = width;
     }
@@ -26,9 +26,8 @@ public class Square extends Shape implements Resizeable {
 
     @Override
     public String toString() {
-        return "Square{" +
-                "width=" + width +
-                '}';
+        return "Square Area : " +
+                 getArea() ;
     }
 
     @Override

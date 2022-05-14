@@ -7,19 +7,20 @@ public class TotalTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Set Length");
-        double length = scanner.nextInt();
+        double length = scanner.nextDouble();
         System.out.println("Set width");
-        double width = scanner.nextInt();
+        double width = scanner.nextDouble();
         Shape[] shapes = new Shape[3];
         shapes[0] = new Circle(length, "Green", true);
         shapes[1] = new Rectangle(width, length, "black", true);
-        shapes[2] = new Square("Green", true, width);
-        for (int i = 0; i <shapes.length ; i++) {
-            System.out.println(shapes[i].getArea());
-            if (shapes[i] instanceof Square){
-                ((Square) shapes[i]).howToColor() ;
+        shapes[2] = new Square(width, "Grey", true);
+        for (Shape shape : shapes) {
+            System.out.println(shape.toString());
+            if (shape instanceof Square) {
+                ((Square) shape).howToColor();
+
+
             }
         }
-
     }
 }

@@ -5,7 +5,7 @@ public class SquareTest {
     }
 
     public static void main(String[] args) {
-        Square square = new Square("Blue", true, 123);
+        Square square = new Square(123, "Blue", true);
         System.out.println(square);
 
     }

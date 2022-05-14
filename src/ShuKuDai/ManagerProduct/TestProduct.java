@@ -1,4 +1,4 @@
-package ShuKuDai;
+package ShuKuDai.ManagerProduct;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ShuKuDai;
+package ShuKuDai.ManagerProduct;
 
 public class Product {
     private int id;

@@ -1,35 +1,27 @@
 package ss7_AbstractClass_Interface.Exercise2;
 
 
-public class Square extends Shape implements Colorable {
-    private double width;
+public class Square extends Rectangle implements Colorable {
+
+
+    public Square() {
+    }
 
     public Square(double width) {
-        this.width = width;
+        super(width, width);
     }
 
-    public Square(String color, boolean filled, double width) {
-        super(color, filled);
-        this.width = width;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
+    public Square(double width, String color, boolean filled) {
+        super(width,width, color, filled);
     }
 
     public double getArea() {
-        return this.width * this.width;
+        return getWidth()*getWidth();
     }
 
     @Override
     public String toString() {
-        return "Square{" +
-                "width=" + width +
-                '}';
+        return "Square Area " +getArea() ;
     }
 
     @Override
