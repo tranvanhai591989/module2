@@ -1,16 +1,17 @@
 package ShuKuDai.StaffTeacherStudent;
 
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Manager {
     public static Scanner scanner = new Scanner(System.in);
 
     public static int id = 0;
+    public static int place = 0;
+
     public static int stt = 1;
-    public static Person[] managers = new Person[10];
-    public static int[] count = new int[100];
+    public static Person[] managers = new Person[100];
+    public static int[] arrId = new int[100];
 
     public static void add() {
         System.out.println("1 - Student\n" +
@@ -18,7 +19,6 @@ public class Manager {
         int choose = Integer.parseInt(scanner.nextLine());
         switch (choose) {
             case 1:
-
                 System.out.print("Set name : ");
                 String name = scanner.nextLine();
                 System.out.print("Set age : ");
@@ -27,10 +27,11 @@ public class Manager {
                 String gender = scanner.nextLine();
                 System.out.print("Set Point : ");
                 double point = Double.parseDouble(scanner.nextLine());
-                Student student = new Student(stt, count[id], name, age, gender, point);
-                managers[id] = (Person) student;
+                Student student = new Student(stt, arrId[id], name, age, gender, point);
+                managers[place] = student;
                 stt++;
                 id++;
+                place++;
                 break;
             case 2:
                 System.out.print("Set name : ");
@@ -41,11 +42,11 @@ public class Manager {
                 String gender1 = scanner.nextLine();
                 System.out.print("Set Salary : ");
                 int salary = Integer.parseInt(scanner.nextLine());
-                Teacher teacher = new Teacher(stt, count[id], name1, age1, gender1, salary);
-                managers[id] = (Person) teacher;
+                Teacher teacher = new Teacher(stt, arrId[id], name1, age1, gender1, salary);
+                managers[place] = teacher;
                 stt++;
                 id++;
-
+                place++;
                 break;
         }
     }
@@ -55,11 +56,12 @@ public class Manager {
         int check = 0;
         System.out.println("Enter char :  ");
         String chart = scanner.nextLine();
-        for (int i = 0; i < managers.length; i++) {
-            if (managers[i] != null && managers[i].toString().contains(chart)) {
-                System.out.println(managers[i]);
+        for (Person manager : managers) {
+            if (manager != null && manager.toString().contains(chart)) {
+                System.out.println(manager);
 
-            } check++;
+            }
+            check++;
         }
         if (check > 0) {
             System.out.println("Can't not find ");
@@ -67,40 +69,41 @@ public class Manager {
     }
 
     public static void delete() {
-        int pending =0;
-        System.out.println("Input No..");
+        int pending;
+        System.out.println("Do you want delete No..");
         int no = Integer.parseInt(scanner.nextLine());
-        for (int i = no-1; i < managers.length - 1; i++) {
+        for (int i = no - 1; i < managers.length - 1; i++) {
             managers[i] = null;
             managers[i] = managers[i + 1];
+            managers[i + 1] = null;
+            pending = arrId[i];                           // thay chổ bị xóa bằng các phần tử phía sau
+            arrId[i] = arrId[1 + i];                  // chuyển id kề chổ bị xóa thành chổ bị xóa
+            arrId[arrId.length - 1] = pending;
+        }place--;id++;stt--;
 
-
-        }stt--;
-        for (int i = no-1; i <count.length-1 ; i++) {
-            pending =count[i];
-            count[i]=count[1+i];
-            count[count.length-1]=pending;
+        for (int i = no - 1; i < managers.length - 1; i++) {
+            if (managers[i] != null) {
+                managers[i].setStt(no);
+                no++;
+            } else {
+                break;
+            }
         }
-//        for (int i = no-1; i <managers.length-1 ; i++) {
-//            managers[i].setStt(i+1);
-//        }
         display();
-
     }
 
     public static void display() {
-        for (int i = 0; i < managers.length; i++) {
-            if (managers[i] != null) {
-                System.out.println(managers[i]);
+        for (Person manager : managers) {
+            if (manager != null) {
+                System.out.println(manager);
             }
         }
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < count.length - 1; i++) {
-            count[i] = 100 + i;
+        for (int i = 0; i < arrId.length - 1; i++) {  //tạo id riêng
+            arrId[i] = 100 + i;
         }
-        System.out.println(Arrays.toString(count));
         do {
             System.out.println(" ----ManagerStaffTeacherStudent----\n" +
                     "1 - Add\n" +
@@ -108,7 +111,6 @@ public class Manager {
                     "3 - Delete\n" +
                     "4 - Display\n" +
                     "5 - Exit\n" +
-
                     "You choose :");
             switch (Integer.parseInt(scanner.nextLine())) {
                 case 1:
@@ -124,8 +126,6 @@ public class Manager {
                     display();
                     break;
                 case 5:
-
-
                     System.exit(0);
             }
         } while (true);

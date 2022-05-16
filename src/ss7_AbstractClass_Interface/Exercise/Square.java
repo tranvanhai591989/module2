@@ -1,6 +1,6 @@
 package ss7_AbstractClass_Interface.Exercise;
 
-public class Square extends Shape implements Resizeable {
+public class Square extends Shape {
     private double width;
 
     public Square(double width) {
@@ -32,6 +32,6 @@ public class Square extends Shape implements Resizeable {
 
     @Override
     public void resize(double percent) {
-        this.width = width * percent;
+        this.width=width*percent;
     }
 }

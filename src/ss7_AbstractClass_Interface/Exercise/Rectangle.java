@@ -1,6 +1,6 @@
 package ss7_AbstractClass_Interface.Exercise;
 
-public class Rectangle extends Shape implements Resizeable {
+public class Rectangle extends Shape  {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -44,9 +44,8 @@ public class Rectangle extends Shape implements Resizeable {
 
     @Override
     public void resize(double percent) {
-        this.length = length * percent;
-        this.width = width * percent;
-
+        this.width=width*percent;
+        this.length=length*percent;
     }
 
     @Override

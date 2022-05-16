@@ -1,6 +1,7 @@
 package ss7_AbstractClass_Interface.Exercise;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TotalTest {
@@ -20,5 +21,7 @@ public class TotalTest {
             shape.resize((Math.random() * 1.0));
             System.out.println("After  : " + shape + shape.getArea());
         }
+
+        ArrayList a = new ArrayList();
     }
 }

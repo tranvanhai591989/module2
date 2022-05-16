@@ -1,8 +1,9 @@
 package ShuKuDai.StaffTeacherStudent;
 
-public class Student extends Person{
+public class Student extends Person {
     private double point;
-    public Student(){
+
+    public Student() {
 
     }
 
@@ -25,6 +26,6 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return  "Student ==> No "+stt  +" , Id : " +getId()+" ,Name : "+getName()+" ,Age : "+getAge()+" ,Gender :"+getGender()+" , Point "+getPoint();
+        return "Student ==> No " + stt + " , Id : " + getId() + " ,Name : " + getName() + " ,Age : " + getAge() + " ,Gender :" + getGender() + " , Point " + getPoint();
     }
 }
