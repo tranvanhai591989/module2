@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
 @RunWith(Parameterized.class)
 public class TennisGameTest {
 
-    private int player1Score;
-    private int player2Score;
-    private String expectedScore;
+    private final int player1Score;
+    private final int player2Score;
+    private final String expectedScore;
 
     public TennisGameTest(int player1Score, int player2Score, String expectedScore) {
         this.player1Score = player1Score;
