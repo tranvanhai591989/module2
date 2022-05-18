@@ -1,11 +1,18 @@
 package ss10_DSA_Danh_sach.practice.linked_list_class;
 
-public class MyLinkedList {
+public class MyLinkedList<E> {
     private Node head;
     private int numNodes;
 
     public MyLinkedList(Object data) {
         head = new Node(data);
+    }
+
+    public MyLinkedList() {
+
+    }
+
+    public <dataType> void addLast(dataType data) {
     }
 
     private class Node {

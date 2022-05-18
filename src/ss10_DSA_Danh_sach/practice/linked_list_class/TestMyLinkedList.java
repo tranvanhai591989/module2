@@ -1,9 +1,9 @@
 package ss10_DSA_Danh_sach.practice.linked_list_class;
 
 public class TestMyLinkedList {
-    public static void main(String[] args) {
+    public static <E> void main(String[] args) {
         System.out.println("/=/=/=/= TESTING /=/=/=/=");
-        MyLinkedList ll = new MyLinkedList(10);
+        MyLinkedList<E> ll = new MyLinkedList<E>(10);
         ll.addFirst(16);
         ll.addFirst(12);
         ll.addFirst(13);
