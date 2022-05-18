@@ -34,7 +34,6 @@ public abstract class Shape implements Resizeable {
     public void resize(double percent) {
 
     }
-
     @Override
     public String toString() {
         return "A Shape with color of "
