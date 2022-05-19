@@ -29,7 +29,7 @@ public class ReverseArrayByStack {
         }
 
         System.out.println("Stack :" + stack);
-        String chart= "zxcvbnm";
+        String chart = "zxcvbnm";
         char[] arr2 = chart.toCharArray();
 
         System.out.println(arr2);
