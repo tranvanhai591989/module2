@@ -1,7 +1,9 @@
 package ss12_javaCollectionFramework.exercise.tree_map;
 
-public class ProductManager {
-    private  int id;
+import java.util.Comparator;
+
+public class ProductManager implements Comparator<ProductManager> {
+    private int id;
     private String name;
     private int price;
     private int amount;
@@ -20,13 +22,13 @@ public class ProductManager {
 
     @Override
     public String toString() {
-        return "ProductManager{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", amount=" + amount +
-                ", Production='" + Production + '\'' +
-                '}';
+        return
+                "\n" + " id=" + id +
+                        ", name=" + name +
+                        ", price=" + price +
+                        ", amount=" + amount +
+                        ", Production=" + Production
+                ;
     }
 
     public int getId() {
@@ -61,11 +63,16 @@ public class ProductManager {
         this.amount = amount;
     }
 
-    public String getProduction() {
+    public String getProduction(String production) {
         return Production;
     }
 
     public void setProduction(String production) {
         Production = production;
+    }
+
+    @Override
+    public int compare(ProductManager o1, ProductManager o2) {
+        return 0;
     }
 }
