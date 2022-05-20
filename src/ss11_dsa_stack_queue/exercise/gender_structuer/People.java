@@ -40,8 +40,8 @@ public class People {
 
     @Override
     public String toString() {
-        return  name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", birthday='" + birthday + '\'' ;
+        return name + '\'' +
+                ", G : " + gender + '\'' +
+                ", B : " + birthday + '\'';
     }
 }

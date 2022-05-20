@@ -7,7 +7,7 @@ public class CheckParentheses {
         Scanner scanner = new Scanner(System.in);
         Stack<Character> bStack = new Stack<>();
         System.out.println("Input text");
-        String text = scanner.nextLine();// ())
+        String text = scanner.nextLine();
         boolean flag = true;
         for (int i = 0; i < text.length(); i++) {
             if (text.charAt(i) == '(') {

@@ -29,7 +29,7 @@ public class GenderStructure extends People {
                 queueNu.add(item);
             }
         }
-        System.out.println("Danh sach nam : " + queueNam);
-        System.out.println("Danh sach nu : " + queueNu);
+        System.out.println("\n" + "Danh sach nam : " + queueNam);
+        System.out.println("\n" + "Danh sach nu : " + queueNu);
     }
 }
