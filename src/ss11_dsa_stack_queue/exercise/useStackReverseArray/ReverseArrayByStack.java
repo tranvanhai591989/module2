@@ -1,7 +1,6 @@
 package ss11_dsa_stack_queue.exercise.useStackReverseArray;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -16,8 +15,8 @@ public class ReverseArrayByStack {
         System.out.println("Array : " + Arrays.toString(arr));
 
         Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < arr.length; i++) {
-            stack.push(arr[i]);
+        for (int value : arr) {
+            stack.push(value);
         }
         System.out.println("Stack :" + stack.toString());
         for (int i = 0; i < arr.length; i++) {
@@ -35,9 +34,10 @@ public class ReverseArrayByStack {
         System.out.println(arr2);
 
         Stack<Character> stackChar = new Stack<>();
-        for (int i = 0; i < arr2.length; i++) {
-            stackChar.push(arr2[i]);
+        for (char c : arr2) {
+            stackChar.push(c);
         }
+
         System.out.println("Stack :" + stackChar.toString());
         for (int i = 0; i < arr2.length; i++) {
             stackChar.pop();
