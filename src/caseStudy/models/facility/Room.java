@@ -1,6 +1,8 @@
 package caseStudy.models.facility;
 
-public class Room extends Facility {
+import java.util.Comparator;
+
+public class Room extends Facility implements Comparator<Room> {
     String freeService;
 
     public Room() {
@@ -28,5 +30,10 @@ public class Room extends Facility {
         return "Room{" + super.toString()+
                 "freeService='" + freeService + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compare(Room o1, Room o2) {
+        return 0;
     }
 }

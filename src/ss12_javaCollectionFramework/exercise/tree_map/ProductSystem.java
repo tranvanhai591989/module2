@@ -112,14 +112,10 @@ public class ProductSystem extends ProductManager implements InterfaceMethod  {
 
     @Override
     public void rangerReductionPrice() {
-        Collections.sort(productList, new Comparator<ProductManager>() {
-            @Override
-            public int compare(ProductManager o1, ProductManager o2) {
-                return o2.getPrice()-o1.getPrice();
-            }
-        });
+        productList.sort((o1, o2) ->o2.getPrice()-o1.getPrice() );
         displayProduct();
     }
+//    -> arrows(dấu mũi tên)
 
     @Override
     public void returnMainMenu() {

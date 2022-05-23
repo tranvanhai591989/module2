@@ -1,6 +1,8 @@
 package caseStudy.models.facility;
 
-public class Villa extends Facility {
+import java.util.Comparator;
+
+public class Villa extends Facility implements Comparator<Villa> {
     String roomStand;
     double poolArea;
     int numberFloors;
@@ -53,5 +55,10 @@ public class Villa extends Facility {
                 ", poolArea=" + poolArea +
                 ", numberFloors=" + numberFloors +
                 '}';
+    }
+
+    @Override
+    public int compare(Villa o1, Villa o2) {
+        return 0;
     }
 }
