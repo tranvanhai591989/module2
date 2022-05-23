@@ -1,6 +1,8 @@
 package ShuKuDai.practiceARRAY_ARRAYLIS_LINKEDLIST_MAP.person;
 
-public class NVSanXuat extends StaffPerson {
+import ShuKuDai.practiceARRAY_ARRAYLIS_LINKEDLIST_MAP.tenkai.TinhCong;
+
+public class NVSanXuat extends StaffPerson implements TinhCong {
     private int soSanPham;
 
     public NVSanXuat() {
@@ -22,14 +24,46 @@ public class NVSanXuat extends StaffPerson {
     public void setSoSanPham(int soSanPham) {
         this.soSanPham = soSanPham;
     }
-    public int getLuong(){
-        return this.soSanPham*50000;
+
+    public int getLuong() {
+        return this.soSanPham * 50000;
     }
 
     @Override
     public String toString() {
         return "NVSanXuat{" + super.toString() +
                 "soSanPham=" + soSanPham +
+                ", Tien luong = " + tienluong() +
                 '}';
+    }
+
+    @Override
+    public double tienluong() {
+        return this.soSanPham * 50000;
+    }
+
+    @Override
+    public void luong() {
+
+    }
+
+    @Override
+    public void luongGiam() {
+
+    }
+
+    @Override
+    public void luongTang() {
+
+    }
+
+    @Override
+    public int compare(StaffPerson o1, StaffPerson o2) {
+        return 0;
+    }
+
+    @Override
+    public String chamCong() {
+        return "chấm cong";
     }
 }

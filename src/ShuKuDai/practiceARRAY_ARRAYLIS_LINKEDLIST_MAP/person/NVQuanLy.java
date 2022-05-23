@@ -34,8 +34,8 @@ public class NVQuanLy extends StaffPerson {
         this.heSoLuong = heSoLuong;
     }
 
-    public double getLuong(){
-        return luongCoBan*heSoLuong;
+    public double getLuong() {
+        return luongCoBan * heSoLuong;
     }
 
     @Override
@@ -44,7 +44,32 @@ public class NVQuanLy extends StaffPerson {
         return "NVQuanLy{" + super.toString() +
                 "luongCoBan=" + luongCoBan +
                 ", heSoLuong=" + heSoLuong +
+                ", Tien luong = " + tienluong() +
                 '}';
     }
 
+    @Override
+    public double tienluong() {
+        return this.luongCoBan * heSoLuong;
+    }
+
+    @Override
+    public void luong() {
+
+    }
+
+    @Override
+    public void luongGiam() {
+
+    }
+
+    @Override
+    public void luongTang() {
+
+    }
+
+    @Override
+    public int compare(StaffPerson o1, StaffPerson o2) {
+        return 0;
+    }
 }

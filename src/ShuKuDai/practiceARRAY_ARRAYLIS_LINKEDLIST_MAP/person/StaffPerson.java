@@ -1,15 +1,13 @@
 package ShuKuDai.practiceARRAY_ARRAYLIS_LINKEDLIST_MAP.person;
 
 import ShuKuDai.practiceARRAY_ARRAYLIS_LINKEDLIST_MAP.tenkai.NVInterface;
-import ShuKuDai.practiceARRAY_ARRAYLIS_LINKEDLIST_MAP.tenkai.PersonIMPL;
 
-public class StaffPerson implements NVInterface {
+import java.util.Comparator;
+
+public abstract class StaffPerson implements NVInterface, Comparator<StaffPerson> {
     private String fullName;
     private String birthday;
     private String address;
-    //    private int salary;
-//    private double coeSalary; // hệ số lương
-    public static StaffPerson[] staffPeople = new StaffPerson[1000];
 
     public StaffPerson() {
     }
@@ -53,13 +51,11 @@ public class StaffPerson implements NVInterface {
                 '}';
     }
 
+
     @Override
     public void displayNV() {
 
     }
 
-    @Override
-    public void luong() {
-
-    }
+    public abstract double tienluong();
 }

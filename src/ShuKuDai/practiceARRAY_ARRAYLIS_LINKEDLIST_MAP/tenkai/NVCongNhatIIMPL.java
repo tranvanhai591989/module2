@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class NVCongNhatIIMPL extends NVCongNhat implements NVInterface {
     public static Scanner scanner = new Scanner(System.in);
+
     @Override
     public void displayNV() {
 
