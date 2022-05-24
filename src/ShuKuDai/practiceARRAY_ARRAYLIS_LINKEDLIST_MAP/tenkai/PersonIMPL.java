@@ -18,9 +18,9 @@ public class PersonIMPL implements NVInterface {
 
 
     static {
-        staffPeople[0] = new NVCongNhat("hai", "1/1/2", "Da Nang", 20);
+        staffPeople[0] = new NVCongNhat("hai", "1/1/2", "Da Nang", 27);
         staffPeople[1] = new NVCongNhat("nhat", "2/1/2", "Da Nang", 27);
-        staffPeople[2] = new NVCongNhat("trung", "3/1/2", "Da Nang", 25);
+        staffPeople[2] = new NVCongNhat("trung", "3/1/2", "Da Nang", 27);
         staffPeople[3] = new NVCongNhat("my", "4/1/2", "Da Nang", 14);
         staffPeople[4] = new NVCongNhat("uc", "5/1/2", "Da Nang", 24);
 

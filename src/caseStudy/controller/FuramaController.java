@@ -1,7 +1,9 @@
 package caseStudy.controller;
 
+import caseStudy.models.facility.Facility;
 import caseStudy.models.service.impl.CustomerServiceImpl;
 import caseStudy.models.service.impl.EmployeeServiceImpl;
+import caseStudy.models.service.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -11,6 +13,7 @@ public class FuramaController {
     public static void displayMainMenu() {
         EmployeeServiceImpl employeeServiceImpl = new EmployeeServiceImpl();
         CustomerServiceImpl customerServiceIml = new CustomerServiceImpl();
+        FacilityServiceImpl facilityServiceImpl= new FacilityServiceImpl();
 
         do {
             System.out.println("1. Employee Management\n" +
@@ -79,13 +82,16 @@ public class FuramaController {
                         int choose3 = Integer.parseInt(scanner.nextLine());
                         switch (choose3) {
                             case 1:
+                                facilityServiceImpl.display();
                                 break;
                             case 2:
+                                facilityServiceImpl.add();
                                 break;
                             case 3:
-                                ;
+
                                 break;
                             case 4:
+                                displayMainMenu();
                                 break;
                         }
 

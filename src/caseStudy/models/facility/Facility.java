@@ -1,5 +1,8 @@
 package caseStudy.models.facility;
 
+import java.util.LinkedHashMap;
+import java.util.Scanner;
+
 public abstract class Facility {
     String serviceName;
     double totalArea;
@@ -10,6 +13,8 @@ public abstract class Facility {
     public Facility() {
     }
 
+    public static Scanner scanner = new Scanner(System.in);
+
     public Facility(String serviceName, double totalArea, double rentalCost, int numberOfPeople, String rentalType) {
         this.serviceName = serviceName;
         this.totalArea = totalArea;
@@ -17,6 +22,8 @@ public abstract class Facility {
         this.numberOfPeople = numberOfPeople;
         this.rentalType = rentalType;
     }
+
+
 
     public String getServiceName() {
         return serviceName;
@@ -50,8 +57,8 @@ public abstract class Facility {
         this.numberOfPeople = numberOfPeople;
     }
 
-    public String getRentalType() {
-        return rentalType;
+    public static String getRentalType() {
+        return getRentalType();
     }
 
     public void setRentalType(String rentalType) {

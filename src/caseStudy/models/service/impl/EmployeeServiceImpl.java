@@ -94,6 +94,9 @@ public class EmployeeServiceImpl extends Employee implements EmployeeService {
 
     @Override
     public void search() {
+        for (int i = 0; i <employeeList.size() ; i++) {
+
+        }
 
     }
 }
