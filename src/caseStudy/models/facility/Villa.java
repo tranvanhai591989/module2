@@ -24,33 +24,7 @@ public class Villa extends Facility implements Comparator<Villa> {
         this.numberFloors = numberFloors;
 
     }
-    public static String getRentalType() {
-        do {
-            System.out.println("1. Year rental\n" +
-                    "2. Month rental\n" +
-                    "3. Day rental\n" +
-                    "4. Hours rental\n" +
-                    "Your choose  ");
-            int chanel = Integer.parseInt(scanner.nextLine());
-            if (chanel >= 1 && chanel <= 4) {
-                switch (chanel) {
-                    case 1:
-                        return "Year rental";
-                    case 2:
-                        return "Month rental";
-                    case 3:
-                        return "Day rental";
-                    case 4:
-                        return "Hours rental";
-                }
-                break;
-            } else {
-                System.out.println("Please Retype");
-            }
 
-        } while (true);
-        return " ";
-    }
     public String getRoomStand() {
         return roomStand;
     }
