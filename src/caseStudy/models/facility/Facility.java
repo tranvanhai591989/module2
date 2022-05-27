@@ -1,6 +1,5 @@
 package caseStudy.models.facility;
 
-import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public abstract class Facility {

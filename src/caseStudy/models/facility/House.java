@@ -44,6 +44,7 @@ public class House extends Facility implements Comparator<House> {
                 '}';
     }
 
+
     @Override
     public int compare(House o1, House o2) {
         return 0;
