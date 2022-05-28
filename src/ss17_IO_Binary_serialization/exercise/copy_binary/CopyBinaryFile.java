@@ -3,57 +3,33 @@ package ss17_IO_Binary_serialization.exercise.copy_binary;
 import ss17_IO_Binary_serialization.exercise.product_to_binary_file.Product;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CopyBinaryFile {
 
-    public static void writeProduct(String pathFile, List<Product> list) {
-    File file = new File(pathFile);
-    FileOutputStream fos = null;
-    ObjectOutputStream oos = null;
-        try {
-        fos = new FileOutputStream(file);
-        oos = new ObjectOutputStream(fos);
-        oos.writeObject(list);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }finally {
-        try {
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            oos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public static void main(String[] args) throws IOException {
+        InputStream inStream = null;
+        OutputStream outStream = null;
 
-}
-
-    public static Object readProduct(String pathFile) {
-        File file = new File(pathFile);
-        FileInputStream fileInputStream = null;
-        ObjectInputStream objectInputStream = null;
-        Object object = null;
         try {
-            fileInputStream = new FileInputStream(file);
-            objectInputStream = new ObjectInputStream(fileInputStream);
-            object = objectInputStream.readObject();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            inStream = new FileInputStream(new File("src\\ss17_IO_Binary_serialization\\exercise\\copy_binary\\source.txt"));
+            outStream = new FileOutputStream(new File("src\\ss17_IO_Binary_serialization\\exercise\\copy_binary\\target.txt"));
+
+            int length;
+            byte[] buffer = new byte[1024];
+
+            // copy the file content in bytes
+            while ((length = inStream.read(buffer)) > 0) {
+                outStream.write(buffer, 0, length);
+            }
+            System.out.println("File is copied successful!");
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
-            try {
-                objectInputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            inStream.close();
+            outStream.close();
         }
-        return object;
     }
 }

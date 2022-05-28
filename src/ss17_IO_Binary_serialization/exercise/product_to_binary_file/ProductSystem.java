@@ -1,4 +1,5 @@
 package ss17_IO_Binary_serialization.exercise.product_to_binary_file;
+
 import java.io.EOFException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class ProductSystem extends Product implements ProductInterface {
     public static Scanner scanner = new Scanner(System.in);
     public static List<Product> productList = new ArrayList<>();
-    public  static int id;
+    public static int id;
 
 //    static {
 //        productList.add(new Product());
@@ -60,10 +61,10 @@ public class ProductSystem extends Product implements ProductInterface {
         for (int i = 1; i < productList.size(); i++) {
             if (productList.get(i).getName().contains(key)) {
                 System.out.println(productList.get(i));
-                flag =true;
+                flag = true;
             }
         }
-        if (flag=true){
+        if (flag = true) {
             System.out.println("Not Found");
         }
     }

@@ -1,0 +1,2 @@
+�� sr java.util.ArrayListx����a� I sizexp   w   sr Dss17_IO_Binary_serialization.exercise.product_to_binary_file.Productl畓�mڡ I idI priceL namet Ljava/lang/String;L otherInformationq ~ L
+productionq ~ xp        pppsq ~       {t asdt 123t 123sq ~       {t 123t 123t 123sq ~      �t 6786t 678t 678sq ~      ��t asdat ghjt asdx

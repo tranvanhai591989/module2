@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.List;
 
 public class WriteAndRead {
-
     public static void writeProduct(String pathFile, List<Product> list) {
         File file = new File(pathFile);
         FileOutputStream fos = null;
@@ -15,7 +14,7 @@ public class WriteAndRead {
             oos.writeObject(list);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 assert fos != null;
                 fos.close();

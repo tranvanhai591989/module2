@@ -3,8 +3,8 @@ package ss17_IO_Binary_serialization.exercise.product_to_binary_file;
 import java.util.Scanner;
 
 public class ProductMain {
-    public static Scanner scanner= new Scanner(System.in);
-    public static ProductSystem productSystem = new ProductSystem() ;
+    public static Scanner scanner = new Scanner(System.in);
+    public static ProductSystem productSystem = new ProductSystem();
 
     public static void main(String[] args) {
 
@@ -16,8 +16,8 @@ public class ProductMain {
                         "3. Search\n" +
                         "Your choose");
                 int choose = Integer.parseInt(scanner.nextLine());
-                switch (choose){
-                    case 1 :
+                switch (choose) {
+                    case 1:
                         productSystem.display();
                         break;
                     case 2:
@@ -34,7 +34,7 @@ public class ProductMain {
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             }
-        }while (true);
+        } while (true);
 
     }
 }
