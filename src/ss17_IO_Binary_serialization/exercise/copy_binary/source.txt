@@ -1,0 +1,2 @@
+�� sr java.util.ArrayListx����a� I sizexp   w   sr Css17_IO_Binary_serialization.exercise.product_to_binar_file.Product RQ�� I idI priceL namet Ljava/lang/String;L otherInformationq ~ L
+productionq ~ xp      {t 12t 123t 213sq ~       {t 123t 234t 234sq ~       {t 123t 234t 123sq ~      �t 123t 768t 456sq ~       {t qưet fht sdfx
