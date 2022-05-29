@@ -132,8 +132,9 @@ public class Employee extends Person implements EmployeeService {
     }
 
     @Override
-    public void display() {
+    public Customer display() {
 
+        return null;
     }
 
     @Override

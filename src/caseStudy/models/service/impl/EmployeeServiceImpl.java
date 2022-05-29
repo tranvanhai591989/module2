@@ -1,5 +1,6 @@
 package caseStudy.models.service.impl;
 
+import caseStudy.models.person.Customer;
 import caseStudy.models.person.Employee;
 import caseStudy.models.service.EmployeeService;
 
@@ -8,11 +9,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl extends Employee implements EmployeeService {
-    public static int id = 104;
+    public static int employeeId = 104;
     public static Scanner scanner = new Scanner(System.in);
-
     public static List<Employee> employeeList = new ArrayList<>();
-
     static {
         employeeList.add(new Employee("Nguyễn Hữu Đức", "Nam", "nguyenhuuduc@gmail.com", "07/5/1995", 101, 987456321, 101, 15000000, "Receptional", "Trung cấp"));
         employeeList.add(new Employee("Lê Thanh Tâm", "Nam", "abc123@gmail.com", "15/5/1999", 102, 852963, 102, 12000000, "Receptional", "Trung cấp"));
@@ -33,16 +32,17 @@ public class EmployeeServiceImpl extends Employee implements EmployeeService {
         int phoneNumber = Integer.parseInt(scanner.nextLine());
         System.out.println(" Enter salary : ");
         int salary = Integer.parseInt(scanner.nextLine());
-        employeeList.add(new Employee(name, gender, email, birthday, id, phoneNumber, id, salary, getJobPosition(), getDegree()));
-        id++;
+        employeeList.add(new Employee(name, gender, email, birthday, employeeId, phoneNumber, employeeId, salary, getJobPosition(), getDegree()));
+        employeeId++;
     }
 
     @Override
-    public void display() {
+    public Customer display() {
         for (Employee item : employeeList) {
-            System.out.println(item);
+            System.out.println(item.toString());
         }
 
+        return null;
     }
 
     @Override

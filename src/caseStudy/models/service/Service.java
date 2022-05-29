@@ -1,8 +1,10 @@
 package caseStudy.models.service;
 
+import caseStudy.models.person.Customer;
+
 public interface Service {
      void add();
-     void display();
+     Customer display();
      void delete();
      void update();
      void search();

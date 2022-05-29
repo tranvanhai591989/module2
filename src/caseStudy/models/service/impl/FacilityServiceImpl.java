@@ -4,29 +4,24 @@ import caseStudy.models.facility.Facility;
 import caseStudy.models.facility.House;
 import caseStudy.models.facility.Room;
 import caseStudy.models.facility.Villa;
+import caseStudy.models.person.Customer;
 import caseStudy.models.service.FacilityService;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityServiceImpl extends Facility implements FacilityService {
 
-    public static Map<Facility, Integer> facilityServiceLinkedHashMap = new LinkedHashMap<>();
-    public static int key = 7;
+    public static Map<Facility, Integer> facilityServiceVilla = new LinkedHashMap<>();
+    public static Map<Facility, Integer> facilityServiceHouse = new LinkedHashMap<>();
+    public static Map<Facility, Integer> facilityServiceRoom = new LinkedHashMap<>();
+    public static int keyVilla = 0;
+    public static int keyHouse = 0;
+    public static int keyRoom = 0;
 
 
     public static Scanner scanner = new Scanner(System.in);
-
-    static {
-        facilityServiceLinkedHashMap.put(new House("house", 150, 3000000, 15, "thue tron goi", "3DK", 2), 1);
-        facilityServiceLinkedHashMap.put(new Room("room", 35, 150000, 6, "thue tron goi", "2DK"), 2);
-        facilityServiceLinkedHashMap.put(new Villa("villa", 150, 3000000, 15, "thue tron goi", "2DK", 45, 3), 3);
-        facilityServiceLinkedHashMap.put(new Villa("villa", 150, 3000000, 11, "thue tron goi", "2DK", 45, 3), 4);
-        facilityServiceLinkedHashMap.put(new Villa("villa", 150, 3000000, 12, "thue tron goi", "2DK", 45, 3), 5);
-        facilityServiceLinkedHashMap.put(new Villa("villa", 150, 3000000, 22, "thue tron goi", "2DK", 45, 3), 6);
-    }
 
 
     public static String getRentalType() {
@@ -86,8 +81,10 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
                         double poolArea = Double.parseDouble(scanner.nextLine());
                         System.out.println("Number floor");
                         int numberFloors = Integer.parseInt(scanner.nextLine());
-                        facilityServiceLinkedHashMap.put(new Villa(serviceName, totalArea, rentalCost, numberOfPeople, getRentalType(), roomStand, poolArea, numberFloors), key);
-                        key++;
+                        facilityServiceVilla.put(new Villa(serviceName, totalArea, rentalCost, numberOfPeople, getRentalType(), roomStand, poolArea, numberFloors), keyVilla);
+                        keyVilla++;
+
+
                         break;
                     case 2:
                         System.out.println("Add New House\n" +
@@ -105,8 +102,9 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
                         String houseStand = scanner.nextLine();
                         System.out.println("Number floors");
                         int numberFloorsHouse = Integer.parseInt(scanner.nextLine());
-                        facilityServiceLinkedHashMap.put(new House(serviceNameHouse, totalAreaHouse, rentalCostHouse, numberOfPeopleHouse, getRentalType(), houseStand, numberFloorsHouse), key);
-                        key++;
+                        facilityServiceHouse.put(new House(serviceNameHouse, totalAreaHouse, rentalCostHouse, numberOfPeopleHouse, getRentalType(), houseStand, numberFloorsHouse), keyHouse);
+                        keyHouse++;
+
                         break;
                     case 3:
                         System.out.println("Add New Room\n" +
@@ -122,7 +120,9 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
                         String rentalTypeRoom = scanner.nextLine();
                         System.out.println("Free service");
                         String freeService = scanner.nextLine();
-                        facilityServiceLinkedHashMap.put(new Room(serviceNameRoom, totalAreaRoom, rentalCostRoom, numberOfPeopleRoom, getRentalType(), freeService), key);
+                        facilityServiceRoom.put(new Room(serviceNameRoom, totalAreaRoom, rentalCostRoom, numberOfPeopleRoom, getRentalType(), freeService), keyRoom);
+                        keyRoom++;
+
                         break;
                     case 4:
                         break;
@@ -137,36 +137,34 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
 
 
     @Override
-    public void display() {
-        ArrayList<Facility> arrayListHouse = new ArrayList<>();
-        ArrayList<Facility> arrayListRoom = new ArrayList<>();
-        ArrayList<Facility> arrayListVilla= new ArrayList<>();
-        for (Map.Entry<Facility , Integer> element :facilityServiceLinkedHashMap.entrySet()){
-            if (element.getKey().getServiceName()=="house"){
-                arrayListHouse.add(element.getKey());
-            }else if (element.getKey().getServiceName()=="room"){
-                arrayListRoom.add(element.getKey());
-            }else {
-                arrayListVilla.add(element.getKey());
-            }
-            System.out.println( element.getKey() +" " + element.getValue());
-            System.out.println("So lan villa duoc booking"+arrayListVilla.size());
-            System.out.println("So lan House duoc booking"+arrayListHouse.size());
-            System.out.println("So lan Room duoc booking"+arrayListRoom.size());
-        }
-        if (arrayListVilla.size()>4){
-            System.out.println("Villa dang duoc bao tri");
-            arrayListVilla.clear();
-        }
-        if (arrayListRoom.size()>4){
-            System.out.println("Room dang duoc bao tri");
-            arrayListRoom.clear();
-        }
-        if (arrayListHouse.size()>4){
-            System.out.println("House dang duoc bao tri");
-            arrayListHouse.clear();
+    public Customer display() {
+        System.out.println("1. Display Villa\n" +
+                "2. Display House\n" +
+                "3. Display Room\n" +
+                "Your Choose");
+        int choose = Integer.parseInt(scanner.nextLine());
+        switch (choose) {
+            case 1:
+                for (Map.Entry<Facility, Integer> element : facilityServiceVilla.entrySet()) {
+                    System.out.println("Service name : "+element.getKey()+ "Số lần thuê : "+element.getValue());
+                }
+                break;
+            case 2:
+                for (Map.Entry<Facility, Integer> element : facilityServiceHouse.entrySet()) {
+                    System.out.println("Service name : "+element.getKey()+ "Số lần thuê : "+element.getValue());
+                }
+                break;
+            case 3:
+                for (Map.Entry<Facility, Integer> element : facilityServiceRoom.entrySet()) {
+                    System.out.println("Service name : "+element.getKey()+ "Số lần thuê : "+element.getValue());
+                }
+                break;
+            default:
+
         }
 
+
+        return null;
     }
 
     @Override

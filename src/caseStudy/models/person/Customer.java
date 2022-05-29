@@ -26,7 +26,7 @@ public class Customer extends Person implements CustomerService {
         this.customerCode = customerCode;
     }
 
-    public String getTypeCustomer() {
+    public static String getTypeCustomer() {
         do {
             System.out.println("1. Diamond\n" +
                     "2. Platinum\n" +
@@ -40,7 +40,7 @@ public class Customer extends Person implements CustomerService {
                     case 1:
                         return "Diamond";
                     case 2:
-                        return "Platinum";
+                        return "";
                     case 3:
                         return "Gold";
                     case 4:
@@ -74,8 +74,9 @@ public class Customer extends Person implements CustomerService {
     }
 
     @Override
-    public void display() {
+    public Customer display() {
 
+        return null;
     }
 
     @Override

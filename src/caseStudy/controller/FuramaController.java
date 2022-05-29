@@ -96,6 +96,7 @@ public class FuramaController {
                         }
 
                     } while (true);
+                case 4:     
 
                 case 6:
                     System.exit(0);
@@ -108,61 +109,3 @@ public class FuramaController {
         displayMainMenu();
     }
 }
-
-
-//                    case 3:
-//                        do {
-//                            System.out.println("1. Display list facility\n" +
-//                                    "2. Add new facility\n" +
-//                                    "3.Display list facility maintenance\n" +
-//                                    "4. Return main menu\n" +
-//                                    "Your choose : ");
-//                    int choose3 = Integer.parseInt(scanner.nextLine());
-//                    switch (choose3) {
-////                    case 1:displayListFacility();break;
-////                    case 2:addNewFacility();break;
-////                    case 3:displayListFacilityMaintenance();break;
-//                        case 4:
-//                            break;
-//                    }
-//
-//                } while (true);
-
-//            case 4:
-//                System.out.println(
-//                        "1.\tAdd new booking\n" +
-//                                "2.\tDisplay list booking\n" +
-//                                "3.\tCreate new constracts\n" +
-//                                "4.\tDisplay list contracts\n" +
-//                                "5.\tEdit contracts\n" +
-//                                "6.\tReturn main menu\n" +
-//                                "Your choose : ");
-//                int choose4 = Integer.parseInt(scanner.nextLine());
-//                switch (choose4) {
-//                    case 1:addNewBooking();break;
-//                    case 2:displayListBooking();break;
-//                    case 3:createNewContracts();break;
-//                    case 4:displayListContracts();break;
-//                    case 5:editContracts();break;
-//                    case 6:
-//                        break;
-//
-//                }
-//                while (true) ;
-//
-//
-//            case 5:
-//                System.out.println("1. Display list customers use service\n" +
-//                        "2. Display list customers get voucher\n" +
-//                        "3. Return main menu\n" +
-//                        "Your choose : ");
-//                int choose5 = Integer.parseInt(scanner.nextLine());
-//                switch (choose5) {
-////                    case 1:displayListCustomersUseService();break;
-////                    case 2:displayListCustomersGetVoucher();break;
-//                    case 3:
-//                        break;
-//                }
-////                while (true) ;
-//            case 6:
-//                System.exit(0);

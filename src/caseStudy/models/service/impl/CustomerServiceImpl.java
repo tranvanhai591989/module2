@@ -15,7 +15,7 @@ public class CustomerServiceImpl extends Customer implements CustomerService {
         customerLinkedList.add(new Customer("Hoang", "Nam", "Hoang@gmail.com",
                 "15/3/1991", 1001, 98745678, 1001, "Silver"));
         customerLinkedList.add(new Customer("Nam", "Nam", "nam@gmail.com",
-                "15/3/1991", 1002, 98745678, 1002, "Platinium"));
+                "15/3/1991", 1002, 98745678, 1002, "Platinum"));
         customerLinkedList.add(new Customer("Tuấn", "Nam", "tuan@gmail.com",
                 "15/3/1991", 1003, 98745678, 1003, "Diamond"));
     }
@@ -37,11 +37,12 @@ public class CustomerServiceImpl extends Customer implements CustomerService {
     }
 
     @Override
-    public void display() {
+    public Customer display() {
         for (Customer item : customerLinkedList) {
-            System.out.println(item);
+            System.out.println(item.toString());
         }
 
+        return null;
     }
 
     @Override
