@@ -9,19 +9,17 @@ import caseStudy.ultil.BookingComparator;
 
 import java.util.*;
 
-public class BookingServiceImpl extends Villa implements BookingService {
+public class BookingServiceImpl implements BookingService {
     public static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
     public static Scanner scanner = new Scanner(System.in);
     static List<Customer> customerList = new ArrayList<>();
-    static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
+    static Map<Integer, Villa> facilityIntegerMap = new LinkedHashMap<>();
 
     static {
         customerList.add(new Customer("Hai", "nam", "hai@gmail.com", "03/05/04", 1, 4561315, 151511515, Customer.getTypeCustomer()));
         customerList.add(new Customer("tuong", "nam", "tuong@gmail.com", "06/05/09", 2, 1231123, 454544848, Customer.getTypeCustomer()));
-        facilityIntegerMap.put(new Villa("Villa1", 152, 12, 5, "thue dai han","1", "1Dk", 4, 2), 0);
-        facilityIntegerMap.put(new Villa("Villa2", 1300, 12, 15, "thue dai han","2", "1Dk", 4, 2), 1);
-
-
+        facilityIntegerMap.put(0, new Villa("Villa1", 152, 12, 5, "thue dai han", "1", "1Dk", 4, 2));
+        facilityIntegerMap.put(1, new Villa("Villa2", 1300, 12, 15, "thue dai han", "2", "1Dk", 4, 2));
     }
 
     public static Customer chooseCustomer() {
@@ -46,31 +44,32 @@ public class BookingServiceImpl extends Villa implements BookingService {
         }
         return null;
     }
-//
-//    public static Customer chooseFacility() {
-//        System.out.println("Danh sách dịch vụ");
-//        for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
-//            System.out.println(entry.getKey().toString());
-//        }
-//        System.out.println("Nhập ID dịch vụ");
-//        boolean check = true;
-//        String id = scanner.nextLine();
-//        while (check) {
-//            for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
-//                if (id.equals(entry.getKey().get) {
-//
-//                }
-//
-//            }
-//            if (check) {
-//                System.out.println("Bạn đã nhập sai vui lòng nhập lại");
-//                id = scanner.nextLine();
-//            }
-//        }
-//        return null;
-//    }
 
+    public static Facility chooseFacility() {
+        System.out.println("Danh sách dịch vụ");
+        for (Map.Entry<Integer, Villa> entry : facilityIntegerMap.entrySet()) {
+            System.out.println(entry.getValue().toString());
+        }
+        System.out.println("Nhập ID dịch vụ");
+        boolean check = true;
+        System.out.println("1");
+        String id = scanner.nextLine();
+        System.out.println("2");
+        while (check) {
+            for (Map.Entry<Integer, Villa> entry : facilityIntegerMap.entrySet()) {
+                if (id.equals(entry.getValue().getId())) {
+                    System.out.println(entry.getValue().toString());
+                    check = false;
+                }
 
+            }
+            if (check) {
+                System.out.println("Bạn đã nhập sai vui lòng nhập lại");
+                id = scanner.nextLine();
+            }
+        }
+        return null;
+    }
 
 
     @Override

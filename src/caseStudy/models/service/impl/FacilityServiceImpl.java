@@ -69,6 +69,8 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
                         System.out.println("Add New Villa\n" +
                                 "Service Name");
                         String serviceName = scanner.nextLine();
+                        System.out.println("Villa Id");
+                        String villaId = scanner.nextLine();
                         System.out.println("Villa area");
                         double totalArea = Double.parseDouble(scanner.nextLine());
                         System.out.println("Rental Cost");
@@ -81,7 +83,7 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
                         double poolArea = Double.parseDouble(scanner.nextLine());
                         System.out.println("Number floor");
                         int numberFloors = Integer.parseInt(scanner.nextLine());
-                        facilityServiceVilla.put(new Villa(serviceName, totalArea, rentalCost, numberOfPeople, getRentalType(), roomStand, poolArea, numberFloors), keyVilla);
+                        facilityServiceVilla.put(new Villa(serviceName, totalArea, rentalCost, numberOfPeople, getRentalType(), roomStand, villaId,poolArea, numberFloors), keyVilla);
                         keyVilla++;
 
 
