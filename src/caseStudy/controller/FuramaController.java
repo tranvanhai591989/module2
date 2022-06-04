@@ -61,8 +61,10 @@ public class FuramaController {
                                 employeeServiceImpl.display();
                                 break;
                             case 4:
-                                displayMainMenu();
-                                break;
+                                return;
+                            case 5:
+                                employeeServiceImpl.delete();
+                            break;
                         }
                     }
                     while (true);

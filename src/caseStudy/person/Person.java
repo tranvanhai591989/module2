@@ -2,16 +2,16 @@ package caseStudy.person;
 
 public abstract class Person {
     private String firstNameAndLastName;
-    private int dayOfBirth;
+    private String dayOfBirth;
     private String gender;
     private int id;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
 
     public Person() {
     }
 
-    public Person(String firstNameAndLastName, int dayOfBirth, String gender, int id, int phoneNumber, String email) {
+    public Person(String firstNameAndLastName, String dayOfBirth, String gender, int id, String phoneNumber, String email) {
         this.firstNameAndLastName = firstNameAndLastName;
         this.dayOfBirth = dayOfBirth;
         this.gender = gender;
@@ -19,6 +19,7 @@ public abstract class Person {
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
+    public abstract  String getInfo();
 
     public String getFirstNameAndLastName() {
         return firstNameAndLastName;
@@ -28,11 +29,11 @@ public abstract class Person {
         this.firstNameAndLastName = firstNameAndLastName;
     }
 
-    public int getDayOfBirth() {
+    public String getDayOfBirth() {
         return dayOfBirth;
     }
 
-    public void setDayOfBirth(int dayOfBirth) {
+    public void setDayOfBirth(String dayOfBirth) {
         this.dayOfBirth = dayOfBirth;
     }
 
@@ -52,11 +53,11 @@ public abstract class Person {
         this.id = id;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

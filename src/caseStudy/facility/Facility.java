@@ -9,6 +9,7 @@ public abstract class Facility {
 
     public Facility() {
     }
+    public  abstract String getInfoFa();
 
     public Facility(String serviceName, double acreage, double rentalCosts, int numberOfPeople, String rentalType) {
         this.serviceName = serviceName;

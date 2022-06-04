@@ -7,6 +7,18 @@ public class House extends Facility{
     public House() {
     }
 
+    @Override
+    public String getInfoFa() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s",
+                super.getServiceName(),
+                super.getAcreage(),
+                super.getRentalCosts(),
+                super.getNumberOfPeople(),
+                super.getRentalType(),
+                getRoomStandard(),
+                getNumberOfFloors());
+    }
+
     public House(String roomStandard, int numberOfFloors) {
         this.roomStandard = roomStandard;
         this.numberOfFloors = numberOfFloors;

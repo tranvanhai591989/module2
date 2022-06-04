@@ -8,6 +8,20 @@ public class Villa extends Facility {
     public Villa() {
     }
 
+    @Override
+    public String getInfoFa() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",
+                super.getServiceName(),
+                super.getAcreage(),
+                super.getRentalCosts(),
+                super.getNumberOfPeople(),
+                super.getRentalType(),
+                getRoomStandard(),
+                getSwimmingPoolArea(),
+                getNumberOfFloors());
+
+    }
+
     public Villa(String roomStandard, double swimmingPoolArea, int numberOfFloors) {
         this.roomStandard = roomStandard;
         this.swimmingPoolArea = swimmingPoolArea;

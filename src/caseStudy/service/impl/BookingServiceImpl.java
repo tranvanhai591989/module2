@@ -24,8 +24,10 @@ public class BookingServiceImpl implements ServiceBooking {
         Facility facility = chooseFacility();
         System.out.println("Input start rental day : ");
         String startDate = scanner.nextLine();
+
         System.out.println("Input start rental day : ");
         String endDate = scanner.nextLine();
+
         Booking booking = new Booking(id, startDate, endDate, customer, facility);
 
         bookingSet.add(booking);

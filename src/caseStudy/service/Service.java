@@ -7,7 +7,7 @@ public interface Service {
 
     void display();
 
-    void delete();
+    void delete() throws IOException;
 
     void update() throws IOException;
 

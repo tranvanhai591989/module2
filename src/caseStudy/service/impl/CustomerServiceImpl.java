@@ -1,10 +1,11 @@
 package caseStudy.service.impl;
 
 import caseStudy.person.Customer;
-import caseStudy.person.Employee;
 import caseStudy.service.CustomerService;
+import caseStudy.ultil.FormatString;
 import caseStudy.ultil.ReadAndWrite;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,16 +18,13 @@ public class CustomerServiceImpl extends Customer implements CustomerService {
     public static int customerID;
 
     @Override
-
-    public void add() {
-        customer = ReadAndWrite.readerFile("src\\caseStudy\\data\\customer.csv");
+    public void add() throws IOException {
+        customer = ReadAndWrite.readerFile("D:\\codegym_java\\untitled\\src\\caseStudy\\data\\customer.csv");
         customersList.clear();
         for (String[] item : customer) {
             Customer customer = new
-                    Customer(item[0], Integer.parseInt(item[1]), item[2], Integer.parseInt(item[3]),
-                    Integer.parseInt(item[4]), item[5], Integer.parseInt(item[6]), item[7]);
-//            (String firstNameAndLastName, int dayOfBirth, String gender, int id, int phoneNumber,
-//            String email, int customerCode, String typeOfCustomer)
+                    Customer(item[0], item[1], item[2], Integer.parseInt(item[3]),
+                    item[4], item[5], item[6], item[7]);
             customersList.add(customer);
         }
         if (customersList.isEmpty()) {
@@ -34,40 +32,101 @@ public class CustomerServiceImpl extends Customer implements CustomerService {
         } else {
             customerID = customersList.get(customersList.size() - 1).getId() + 1;
         }
-        System.out.println("Input Name");
-        String firstNameAndLastName = scanner.nextLine();
 
-        System.out.println("Input Birthday (dd/MM/yyyy)");
-        int dayOfBirth = Integer.parseInt(scanner.nextLine());
+        String firstNameAndLastName;
+        do {
+            System.out.println("Input Name  : (Ex : Jon Smith) ");
+            firstNameAndLastName = scanner.nextLine();
+            if (FormatString.formatName(firstNameAndLastName)) {
+                break;
+            } else {
+                System.out.println("Wrong Format Input");
+            }
+        } while (true);
 
 
-        System.out.println("Input gender");
-        String gender = scanner.nextLine();
 
-        System.out.println("Input phone number:");
-        int phoneNumber = Integer.parseInt(scanner.nextLine());
+        String dayOfBirth;
+        do {
+            System.out.println("Input birthday  : (Ex : dd/MM/yyyy) ");
+            dayOfBirth = scanner.nextLine();
+            if (FormatString.dateFormat(dayOfBirth)) {
+                break;
+            } else {
+                System.out.println("Wrong Format Input");
+            }
+        } while (true);
 
-        System.out.println("Input Email:");
-        String email = scanner.nextLine();
+        String gender;
+        do {
+            System.out.println("Input gender  : (Ex : Male|Female|Other) ");
+            gender = scanner.nextLine();
+            if (FormatString.formatGender(gender)) {
+                break;
+            } else {
+                System.out.println("Wrong Format Input");
+            }
+        } while (true);
 
-        System.out.println("Input Employee Code :");
-        int customerCode = Integer.parseInt(scanner.nextLine());
 
-     
+        String phoneNumber;
+        do {
+            System.out.println("Input phone number : (Ex : +84707498777) ");
+            phoneNumber = scanner.nextLine();
+            if (FormatString.formatPhone(phoneNumber)) {
+                break;
+            } else {
+                System.out.println("Wrong Format Input");
+            }
+        } while (true);
 
-        customersList.add(new Customer(firstNameAndLastName, dayOfBirth, gender, customerID, phoneNumber, email, customerCode, getTypeOfCustomer()));
-        //String firstNameAndLastName, int dayOfBirth, String gender,
-        // int id, int phoneNumber, String email, int customerCode,
-        // String typeOfCustomer)
+
+        String email;
+        do {
+            System.out.println("Input Email : (Ex : abc123@gmail.com) ");
+            email = scanner.nextLine();
+            if (FormatString.formatEmail(email)) {
+                break;
+            } else {
+                System.out.println("Wrong Format Input");
+            }
+        } while (true);
+
+
+        String customerCode ;
+        do {
+            System.out.println("Input Customer code : (Ex : CMID-0000 ) ");
+            customerCode = scanner.nextLine();
+            if (FormatString.code(customerCode)) {
+                break;
+            } else {
+                System.out.println("Wrong Format Input");
+            }
+        } while (true);
+
+
+
+        Customer customer = new Customer(firstNameAndLastName, dayOfBirth, gender, customerID, phoneNumber, email, customerCode, getTypeOfCustomer());
+        customersList.add(customer);
+        String line = customer.getInfo();
+        ReadAndWrite.writeFile("D:\\codegym_java\\untitled\\src\\caseStudy\\data\\customer.csv", line);
+        System.out.println("Add successful");
     }
 
 
     @Override
     public void display() {
-        customer = ReadAndWrite.readerFile("D:\\codegym_java\\untitled\\src\\caseStudy\\data\\Employee.csv");
+        customer = ReadAndWrite.readerFile("D:\\codegym_java\\untitled\\src\\caseStudy\\data\\customer.csv");
         customersList.clear();
-        for (String[] item: customer ) {
-//            Customer customer = new Customer()
+        for (String[] item : customer) {
+            Customer customer = new
+                    Customer(item[0], item[1], item[2], Integer.parseInt(item[3]),
+                   item[4], item[5], item[6], item[7]);
+            customersList.add(customer);
+        }
+        System.out.println("----Customer List----");
+        for (Customer item:customersList) {
+            System.out.println(item);
         }
     }
 
@@ -83,20 +142,64 @@ public class CustomerServiceImpl extends Customer implements CustomerService {
         for (int i = 0; i < customersList.size(); i++) {
             if (update == customersList.get(i).getId()) {
 
-                System.out.println("Input name");
-                String firstNameAndLastName = scanner.nextLine();
+                String firstNameAndLastName;
+                do {
+                    System.out.println("Input Name  : (Ex : Jon Smith) ");
+                    firstNameAndLastName = scanner.nextLine();
+                    if (FormatString.formatName(firstNameAndLastName)) {
+                        break;
+                    } else {
+                        System.out.println("Wrong Format Input");
+                    }
+                } while (true);
 
-                System.out.println("Input Birthday (dd/MM/yyyy)");
-                int dayOfBirth = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("Input gender (Male/Female) ");
-                String gender = scanner.nextLine();
 
-                System.out.println("Input phone number ");
-                int phoneNumber = Integer.parseInt(scanner.nextLine());
+                String dayOfBirth;
+                do {
+                    System.out.println("Input birthday  : (Ex : dd/MM/yyyy) ");
+                    dayOfBirth = scanner.nextLine();
+                    if (FormatString.dateFormat(dayOfBirth)) {
+                        break;
+                    } else {
+                        System.out.println("Wrong Format Input");
+                    }
+                } while (true);
 
-                System.out.println("Input Email (abc123@gmail.com ) ");
-                String email = scanner.nextLine();
+                String gender;
+                do {
+                    System.out.println("Input gender  : (Ex : Male|Female|Other) ");
+                    gender = scanner.nextLine();
+                    if (FormatString.formatGender(gender)) {
+                        break;
+                    } else {
+                        System.out.println("Wrong Format Input");
+                    }
+                } while (true);
+
+
+                String phoneNumber;
+                do {
+                    System.out.println("Input phone number : (Ex : +84707498777) ");
+                    phoneNumber = scanner.nextLine();
+                    if (FormatString.formatPhone(phoneNumber)) {
+                        break;
+                    } else {
+                        System.out.println("Wrong Format Input");
+                    }
+                } while (true);
+
+
+                String email;
+                do {
+                    System.out.println("Input Email : (Ex : abc123@gmail.com) ");
+                    email = scanner.nextLine();
+                    if (FormatString.formatEmail(email)) {
+                        break;
+                    } else {
+                        System.out.println("Wrong Format Input");
+                    }
+                } while (true);
 
                 customersList.get(i).setFirstNameAndLastName(firstNameAndLastName);
                 customersList.get(i).setDayOfBirth(dayOfBirth);

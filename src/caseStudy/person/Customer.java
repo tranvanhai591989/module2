@@ -4,28 +4,41 @@ import java.util.Scanner;
 
 public class Customer extends Person {
     public static Scanner scanner = new Scanner(System.in);
-    private int customerCode;
+    private String customerCode;
     private String typeOfCustomer;
 
     public Customer() {
     }
 
-    public Customer(int customerCode, String typeOfCustomer) {
+    @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",
+                super.getFirstNameAndLastName(),
+                super.getDayOfBirth(),
+                super.getGender(),
+                super.getId(),
+                super.getPhoneNumber(),
+                super.getEmail(),
+                getCustomerCode(),
+                getTypeOfCustomer());
+    }
+
+    public Customer(String customerCode, String typeOfCustomer) {
         this.customerCode = customerCode;
         this.typeOfCustomer = typeOfCustomer;
     }
 
-    public Customer(String firstNameAndLastName, int dayOfBirth, String gender, int id, int phoneNumber, String email, int customerCode, String typeOfCustomer) {
+    public Customer(String firstNameAndLastName, String dayOfBirth, String gender, int id, String phoneNumber, String email, String customerCode, String typeOfCustomer) {
         super(firstNameAndLastName, dayOfBirth, gender, id, phoneNumber, email);
         this.customerCode = customerCode;
         this.typeOfCustomer = typeOfCustomer;
     }
 
-    public int getCustomerCode() {
+    public String getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(int customerCode) {
+    public void setCustomerCode(String customerCode) {
         this.customerCode = customerCode;
     }
 
@@ -41,16 +54,20 @@ public class Customer extends Person {
             if (chanel >= 1 && chanel <= 5) {
                 switch (chanel) {
                     case 1:
-                        return "Diamond";
+                        typeOfCustomer = "Diamond";
+                        return typeOfCustomer;
                     case 2:
-                        return "Platinum";
+                        typeOfCustomer = "Platinum";
+                        return typeOfCustomer;
                     case 3:
-                        return "Gold";
+                        typeOfCustomer = "Gold";
+                        return typeOfCustomer;
                     case 4:
-                        return "Silver";
+                        typeOfCustomer = "Silver";
+                        return typeOfCustomer;
                     case 5:
-                        return " Member";
-
+                        typeOfCustomer = " Member";
+                        return typeOfCustomer;
                 }
                 break;
             } else {

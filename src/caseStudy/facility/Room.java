@@ -6,6 +6,17 @@ public class Room extends Facility {
     public Room() {
     }
 
+    @Override
+    public String getInfoFa() {
+        return String.format("%s,%s,%s,%s,%s,%s",
+                super.getServiceName(),
+                super.getAcreage(),
+                super.getRentalCosts(),
+                super.getNumberOfPeople(),
+                super.getRentalType(),
+                getFreeService());
+    }
+
     public Room(String freeService) {
         this.freeService = freeService;
     }
