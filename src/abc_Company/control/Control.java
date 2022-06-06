@@ -2,7 +2,6 @@ package abc_Company.control;
 
 import abc_Company.employImpl.ManagerImpl;
 import abc_Company.employImpl.ProductStaffImpl;
-import abc_Company.employee.ProductionStaff;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -110,8 +109,8 @@ public class Control {
                                     managerImpl.delete();
                                     break;
                                 case 3:
-                                   displayMainMenu();
-                                   break;
+                                    displayMainMenu();
+                                    break;
 
                             }
                         } while (true);

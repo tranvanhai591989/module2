@@ -40,13 +40,13 @@ public class ProductionStaff extends Employee {
     @Override
     public String getInfo() {
         return String.format("%s,%s,%s,%s,%s,%s,%s",
-                super.getId() ,
-                        super.getCode(),
-                        super.getName() ,
-                        super.getBirthday() ,
-                        super.getAddress(),
-                        getCountProduct() ,
-                        getPriceProduct());
+                super.getId(),
+                super.getCode(),
+                super.getName(),
+                super.getBirthday(),
+                super.getAddress(),
+                getCountProduct(),
+                getPriceProduct());
     }
 
 

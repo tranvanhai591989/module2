@@ -1,6 +1,5 @@
 package abc_Company.employImpl;
 
-import abc_Company.employee.Manager;
 import abc_Company.employee.ProductionStaff;
 import caseStudy.Exception.BirthdayException;
 import caseStudy.Exception.NameException;
