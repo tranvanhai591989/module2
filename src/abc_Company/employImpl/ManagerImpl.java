@@ -7,6 +7,8 @@ import caseStudy.ultil.FormatString;
 import caseStudy.ultil.ReadAndWrite;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -65,10 +67,16 @@ public class ManagerImpl extends Manager implements EmployeeImpl {
             try {
                 System.out.print("Input birthday  : (Ex : dd/MM/yyyy) ");
                 dayOfBirth = scanner.nextLine();
-                if (FormatString.dateFormat(dayOfBirth)) {
+
+                LocalDate dayNow = LocalDate.now();
+
+                LocalDate star = LocalDate.parse(dayOfBirth, DateTimeFormatter.ofPattern("dd/LL/yyyy"));
+
+                if (FormatString.dateFormat(dayOfBirth)&&star.plusYears(18).isBefore(dayNow)) {
                     break;
                 } else {
-                    throw new BirthdayException("Wrong Format Input");
+                    throw new BirthdayException("Wrong Format Input\n" +
+                            "(Age <18)");
                 }
             } catch (BirthdayException e) {
                 System.out.println(e.getMessage());
@@ -145,10 +153,16 @@ public class ManagerImpl extends Manager implements EmployeeImpl {
                         try {
                             System.out.print("Input birthday  : (Ex : dd/MM/yyyy) ");
                             dayOfBirth = scanner.nextLine();
-                            if (FormatString.dateFormat(dayOfBirth)) {
+
+                            LocalDate dayNow = LocalDate.now();
+
+                            LocalDate star = LocalDate.parse(dayOfBirth, DateTimeFormatter.ofPattern("dd/LL/yyyy"));
+
+                            if (FormatString.dateFormat(dayOfBirth)&&star.plusYears(18).isBefore(dayNow)) {
                                 break;
                             } else {
-                                throw new BirthdayException("Wrong Format Input");
+                                throw new BirthdayException("Wrong Format Input\n" +
+                                        "(Age <18)");
                             }
                         } catch (BirthdayException e) {
                             System.out.println(e.getMessage());
@@ -253,9 +267,7 @@ public class ManagerImpl extends Manager implements EmployeeImpl {
             if (item.length == 6) {
                 Manager manager = new Manager(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], Integer.parseInt(item[5]));
                 managerList.add(manager);
-
             }
-
         }
         System.out.println("Manager List");
         for (Manager manager : managerList) {

@@ -7,7 +7,13 @@ import caseStudy.ultil.FormatString;
 import caseStudy.ultil.ReadAndWrite;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -63,13 +69,18 @@ public class ProductStaffImpl implements EmployeeImpl {
         String dayOfBirth;
         do {
             try {
-
                 System.out.print("Input birthday  : (Ex : dd/MM/yyyy) ");
                 dayOfBirth = scanner.nextLine();
-                if (FormatString.dateFormat(dayOfBirth)) {
+
+                LocalDate dayNow = LocalDate.now();
+
+                LocalDate star = LocalDate.parse(dayOfBirth, DateTimeFormatter.ofPattern("dd/LL/yyyy"));
+
+                if (FormatString.dateFormat(dayOfBirth)&&star.plusYears(18).isBefore(dayNow)) {
                     break;
                 } else {
-                    throw new BirthdayException("Wrong Format Input");
+                    throw new BirthdayException("Wrong Format Input\n" +
+                            "(Age <18)");
                 }
             } catch (BirthdayException e) {
                 System.out.println(e.getMessage());
@@ -167,10 +178,16 @@ public class ProductStaffImpl implements EmployeeImpl {
                         try {
                             System.out.print("Input birthday  : (Ex : dd/MM/yyyy) ");
                             dayOfBirth = scanner.nextLine();
-                            if (FormatString.dateFormat(dayOfBirth)) {
+
+                            LocalDate dayNow = LocalDate.now();
+
+                            LocalDate star = LocalDate.parse(dayOfBirth, DateTimeFormatter.ofPattern("dd/LL/yyyy"));
+
+                            if (FormatString.dateFormat(dayOfBirth)&&star.plusYears(18).isBefore(dayNow)) {
                                 break;
                             } else {
-                                throw new BirthdayException("Wrong Format Input");
+                                throw new BirthdayException("Wrong Format Input\n" +
+                                        "(Age <18)");
                             }
                         } catch (BirthdayException e) {
                             System.out.println(e.getMessage());

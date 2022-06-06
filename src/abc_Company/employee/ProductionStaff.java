@@ -25,10 +25,13 @@ public class ProductionStaff extends Employee {
 
     @Override
     public String toString() {
-        return "ProductionStaff{" + super.toString() +
-                "countProduct=" + countProduct +
-                ", priceProduct=" + priceProduct +
-                '}';
+        return "Product Staff Name : "+ getName()+
+                " ,Id :  "+ getId()+
+                " ,Code : "+ getCode()+
+                " ,Birthday  "+ getBirthday()+
+                " ,Address  "+ getAddress()+
+                " ,Moment  "+ getCountProduct()+
+                " ,Price  "+ getPriceProduct();
     }
 
     public ProductionStaff(int id, String code, String name, String birthday, String address, int countProduct, int priceProduct) {
