@@ -5,60 +5,20 @@ import java.util.Scanner;
 public class PatientVip extends Patient {
     public String patientType;   // loại
     public String patientEffect;   // Hiệu lực
+    public static Scanner scanner = new Scanner(System.in);
 
     public PatientVip() {
     }
 
-    public PatientVip(String patientType, String patientEffect, Scanner scanner) {
+    public PatientVip(String patientType, String patientEffect) {
         this.patientType = patientType;
         this.patientEffect = patientEffect;
-        this.scanner = scanner;
     }
 
-    public PatientVip(int numericalOrder, String patientCode, String patientName, String inHospital, String outHospital, String reason, String patientType, String patientEffect, Scanner scanner) {
-        super(numericalOrder, patientCode, patientName, inHospital, outHospital, reason);
+    public PatientVip(int numericalOrder, String patientCode, String medicalRecordCode, String patientName, String hospitalizedDay, String hospitalDischargeDate, String reason, String patientType, String patientEffect) {
+        super(numericalOrder, patientCode, medicalRecordCode, patientName, hospitalizedDay, hospitalDischargeDate, reason);
         this.patientType = patientType;
         this.patientEffect = patientEffect;
-        this.scanner = scanner;
-    }
-
-    public PatientVip(int numericalOrder, String patientCode, String patientHosCode, String patientName, String inHospital, String outHospital, String reason, String patientType, String patientEffect, Scanner scanner) {
-        super(numericalOrder, patientCode, patientHosCode, patientName, inHospital, outHospital, reason);
-        this.patientType = patientType;
-        this.patientEffect = patientEffect;
-        this.scanner = scanner;
-    }
-
-    Scanner scanner = new Scanner(System.in);
-    public String getPatientType() {
-        do {
-            try {
-                System.out.println("-----loai Vip------\n" +
-                        "1. Vip 1\n" +
-                        "2. Vip 2\n" +
-                        "3. Vip 3\n" +
-                        "Your choose  ");
-                int choose = Integer.parseInt(scanner.nextLine());
-                if (choose >= 1 && choose <= 3) {
-                    switch (choose) {
-                        case 1:
-                            return "Vip 1";
-                        case 2:
-                            return "Vip 2";
-                        case 3:
-                            return "Vip 3";
-                        default:
-                            System.out.println("Vui lòng nhập lại trong khoảng từ 1->3");
-                    }
-                    break;
-                } else {
-                    System.out.println("Please Retype");
-                }
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-        } while (true);
-        return " ";
     }
 
     public void setPatientType(String patientType) {
@@ -73,15 +33,46 @@ public class PatientVip extends Patient {
         this.patientEffect = patientEffect;
     }
 
+    public String getPatientType() {
+        do {
+            try {
+                System.out.println("-----loai Vip------\n" +
+                        "1. Vip 1\n" +
+                        "2. Vip 2\n" +
+                        "3. Vip 3\n" +
+                        "Your choose  ");
+                int choose = Integer.parseInt(scanner.nextLine());
+                if (choose >= 1 && choose <= 3) {
+                    switch (choose) {
+                        case 1:
+                            return "VIP I";
+                        case 2:
+                            return "VIP II";
+                        case 3:
+                            return "VIP III";
+                        default:
+                            System.out.println("Vui lòng nhập lại trong khoảng từ 1->3");
+                    }
+                    break;
+                } else {
+                    System.out.println("Please Retype");
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        } while (true);
+        return " ";
+    }
+
     @Override
     public String getInfo() {
         return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",
                 super.getNumericalOrder(),
                 super.getPatientCode(),
-                super.getPatientHosCode(),
+                super.getMedicalRecordCode(),
                 super.getPatientName(),
-                super.getInHospital(),
-                super.getOutHospital(),
+                super.getHospitalizedDay(),
+                super.getHospitalDischargeDate(),
                 super.getReason(),
                 getPatientType(),
                 getPatientEffect());
@@ -90,7 +81,7 @@ public class PatientVip extends Patient {
 
     @Override
     public String toString() {
-        return "PatientVip{" +super.toString()+
+        return "PatientVip{" + super.toString() +
                 "patientType='" + patientType + '\'' +
                 ", patientEffect='" + patientEffect + '\'' +
                 '}';

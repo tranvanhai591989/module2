@@ -3,30 +3,15 @@ package de_quan_ly_benh_an.patient;
 public class PatientNormal extends Patient {
     private double payment;
 
-    @Override
-    public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",
-                super.getNumericalOrder(),
-                super.getPatientCode(),
-                super.getPatientHosCode(),
-                super.getPatientName(),
-                super.getInHospital(),
-                super.getOutHospital(),
-                super.getReason(),
-                getPayment());
+    public PatientNormal() {
     }
 
     public PatientNormal(double payment) {
         this.payment = payment;
     }
 
-    public PatientNormal(int numericalOrder, String patientCode, String patientName, String inHospital, String outHospital, String reason, double payment) {
-        super(numericalOrder, patientCode, patientName, inHospital, outHospital, reason);
-        this.payment = payment;
-    }
-
-    public PatientNormal(int numericalOrder, String patientCode, String patientHosCode, String patientName, String inHospital, String outHospital, String reason, double payment) {
-        super(numericalOrder, patientCode, patientHosCode, patientName, inHospital, outHospital, reason);
+    public PatientNormal(int numericalOrder, String patientCode, String medicalRecordCode, String patientName, String hospitalizedDay, String hospitalDischargeDate, String reason, double payment) {
+        super(numericalOrder, patientCode, medicalRecordCode, patientName, hospitalizedDay, hospitalDischargeDate, reason);
         this.payment = payment;
     }
 
@@ -39,8 +24,21 @@ public class PatientNormal extends Patient {
     }
 
     @Override
+    public String getInfo() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",
+                super.getNumericalOrder(),
+                super.getPatientCode(),
+                super.getMedicalRecordCode(),
+                super.getPatientName(),
+                super.getHospitalizedDay(),
+                super.getHospitalDischargeDate(),
+                super.getReason(),
+                getPayment());
+    }
+
+    @Override
     public String toString() {
-        return "PatientNormal{" +
+        return "PatientNormal{" +super.toString()+
                 "payment=" + payment +
                 '}';
     }

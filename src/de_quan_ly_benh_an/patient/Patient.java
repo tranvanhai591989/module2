@@ -2,12 +2,11 @@ package de_quan_ly_benh_an.patient;
 
 public abstract class Patient {
     private int numericalOrder;
-    private String patientCode;
-    private String patientHosCode;
-
+    private String patientCode;          // mã bệnh nhân
+    private String medicalRecordCode;    // mã bệnh án
     private String patientName;
-    private String inHospital;
-    private String outHospital;
+    private String hospitalizedDay;      // ngày nhập viện
+    private String hospitalDischargeDate;// ngày xuất viện
     private String reason;
 
     public abstract String getInfo();
@@ -15,13 +14,13 @@ public abstract class Patient {
     public Patient() {
     }
 
-    public Patient(int numericalOrder, String patientCode, String patientName,
-                   String inHospital, String outHospital, String reason) {
+    public Patient(int numericalOrder, String patientCode, String medicalRecordCode, String patientName, String hospitalizedDay, String hospitalDischargeDate, String reason) {
         this.numericalOrder = numericalOrder;
         this.patientCode = patientCode;
+        this.medicalRecordCode = medicalRecordCode;
         this.patientName = patientName;
-        this.inHospital = inHospital;
-        this.outHospital = outHospital;
+        this.hospitalizedDay = hospitalizedDay;
+        this.hospitalDischargeDate = hospitalDischargeDate;
         this.reason = reason;
     }
 
@@ -41,6 +40,14 @@ public abstract class Patient {
         this.patientCode = patientCode;
     }
 
+    public String getMedicalRecordCode() {
+        return medicalRecordCode;
+    }
+
+    public void setMedicalRecordCode(String medicalRecordCode) {
+        this.medicalRecordCode = medicalRecordCode;
+    }
+
     public String getPatientName() {
         return patientName;
     }
@@ -49,20 +56,20 @@ public abstract class Patient {
         this.patientName = patientName;
     }
 
-    public String getInHospital() {
-        return inHospital;
+    public String getHospitalizedDay() {
+        return hospitalizedDay;
     }
 
-    public void setInHospital(String inHospital) {
-        this.inHospital = inHospital;
+    public void setHospitalizedDay(String hospitalizedDay) {
+        this.hospitalizedDay = hospitalizedDay;
     }
 
-    public String getOutHospital() {
-        return outHospital;
+    public String getHospitalDischargeDate() {
+        return hospitalDischargeDate;
     }
 
-    public void setOutHospital(String outHospital) {
-        this.outHospital = outHospital;
+    public void setHospitalDischargeDate(String hospitalDischargeDate) {
+        this.hospitalDischargeDate = hospitalDischargeDate;
     }
 
     public String getReason() {
@@ -78,30 +85,11 @@ public abstract class Patient {
         return "Patient{" +
                 "numericalOrder=" + numericalOrder +
                 ", patientCode='" + patientCode + '\'' +
-                ", patientHosCode='" + patientHosCode + '\'' +
+                ", medicalRecordCode='" + medicalRecordCode + '\'' +
                 ", patientName='" + patientName + '\'' +
-                ", inHospital='" + inHospital + '\'' +
-                ", outHospital='" + outHospital + '\'' +
+                ", hospitalizedDay='" + hospitalizedDay + '\'' +
+                ", hospitalDischargeDate='" + hospitalDischargeDate + '\'' +
                 ", reason='" + reason + '\'' +
                 '}';
     }
-
-    public String getPatientHosCode() {
-        return patientHosCode;
-    }
-
-    public void setPatientHosCode(String patientHosCode) {
-        this.patientHosCode = patientHosCode;
-    }
-
-    public Patient(int numericalOrder, String patientCode, String patientHosCode, String patientName, String inHospital, String outHospital, String reason) {
-        this.numericalOrder = numericalOrder;
-        this.patientCode = patientCode;
-        this.patientHosCode = patientHosCode;
-        this.patientName = patientName;
-        this.inHospital = inHospital;
-        this.outHospital = outHospital;
-        this.reason = reason;
-    }
-
 }

@@ -31,9 +31,8 @@ public class EmployeeServiceImpl extends Employee implements EmployeeService {
                         Double.parseDouble(item[9]));
                 employeesList.add(employee);
             }
-
-
         }
+
 
         int max = 0;
         if (employeesList.isEmpty()) {
@@ -324,7 +323,7 @@ public class EmployeeServiceImpl extends Employee implements EmployeeService {
                     flag = true;
                 }
             } while (flag);
-            ;
+
 
             employeesList.get(index).setFirstNameAndLastName(firstNameAndLastName);
             employeesList.get(index).setDayOfBirth(dayOfBirth);
